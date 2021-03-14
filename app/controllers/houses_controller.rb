@@ -6,6 +6,8 @@ class HousesController < ApplicationController
     @house = House.new(home: Home.new)
   end
 
+  def show; end
+
   # GET /houses/1/edit
   def edit; end
 

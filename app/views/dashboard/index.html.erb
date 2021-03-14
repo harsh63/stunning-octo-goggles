@@ -1,0 +1,49 @@
+<div class="ui container">
+  <% if manager_signed_in? %>
+    <div class="ui container">
+      <div class="ui compact menu">
+        <div class="ui simple dropdown item">
+          Create
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <%= link_to('House', new_house_path, class: 'item') %>
+            <%= link_to('Complex Building', new_complex_building_path, class: 'item') %>
+            <%= link_to('Commercial Unit', new_commercial_unit_path, class: 'item') %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <h1>All Items</h1>
+  <div class="ui three column grid">
+    <% @assets.each do |asset| %>
+      <div class="column">
+        <div class="ui fluid card">
+          <% if asset.pictures.any? %>
+            <div class="ui slide masked reveal image">
+              <% asset.pictures.each_with_index do |pic, idx| %>
+                <img src="<%= url_for pic %>" class="<%= idx == 0 ? 'visiable' : 'hidden' %> content">
+              <% end %>
+            </div>
+          <% else %>
+            <div class="image">
+              <img src='https://semantic-ui.com/images/wireframe/white-image.png'>
+            </div>
+          <% end %>
+          <div class="content">
+            <p>Type : <%= asset.homeable_type.titleize %></p>
+            <p>Owner : <%= asset.owner %></p>
+            <p>Size  : <%= asset.sqmt %> Sqmt</p>
+            <p>Price  : <%= asset.price %></p>
+          </div>
+          <div class="extra content">
+            <% if manager_signed_in? %>
+              <%= link_to 'Edit', edit_polymorphic_url(asset.homeable), class: 'ui button secondary' %>
+            <% end%>
+            <%= link_to 'Show', polymorphic_url(asset.homeable), class: 'ui button secondary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

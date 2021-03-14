@@ -1,0 +1,24 @@
+<%= form_with(model: complex_building, local: true, class: 'ui form') do |form| %>
+  <% if complex_building.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(complex_building.errors.count, "error") %> prohibited this complex building from being saved:</h2>
+
+      <ul>
+      <% complex_building.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render partial: 'homes/form', locals: {f: form} %>
+
+  <div class="field">
+    <%= form.label :units %>
+    <%= form.number_field :units %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'ui button secondary' %>
+  </div>
+<% end %>

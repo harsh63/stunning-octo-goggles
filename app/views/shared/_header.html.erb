@@ -1,0 +1,11 @@
+<div class="ui secondary pointing menu">
+  <%= link_to 'Home', root_url, class: 'active item'%>
+  <div class="right menu">
+    <% if manager_signed_in? %>
+      <%= link_to 'Logout', destroy_manager_session_path, method: :delete , class: 'ui item' %>
+    <% else %>
+       <%= link_to 'Register', new_manager_registration_path, class: 'ui item' %>
+       <%= link_to 'Sign in', new_manager_session_path, class: 'ui item' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<%= form_with(model: commercial_unit, local: true, class: 'ui form') do |form| %>
+  <% if commercial_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(commercial_unit.errors.count, "error") %> prohibited this commercial unit from being saved:</h2>
+
+      <ul>
+      <% commercial_unit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render partial: 'homes/form', locals: {f: form} %>
+
+  <div class="field">
+    <%= form.label :shops %>
+    <%= form.number_field :shops %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parking %>
+    <%= form.number_field :parking %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'ui button secondary' %>
+  </div>
+<% end %>

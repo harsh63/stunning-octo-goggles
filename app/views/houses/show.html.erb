@@ -1,21 +1,37 @@
-<p id="notice"><%= notice %></p>
-
-<%= render partial: 'homes/show', locals: {home: @house.home} %>
-
-<p>
-  <strong>Rooms:</strong>
-  <%= @house.rooms %>
-</p>
-
-<p>
-  <strong>Floors:</strong>
-  <%= @house.floors %>
-</p>
-
-<p>
-  <strong>Air conditioner:</strong>
-  <%= @house.air_cond %>
-</p>
-
-<%= link_to 'Edit', edit_house_path(@house) %> |
-<%= link_to 'Back', houses_path %>
+<div class="ui raised very padded text container segment">
+  <div class="ui list">
+    <div class="item">
+      <i class="users icon"></i>
+      <div class="content">
+        <%= @house.home.owner %>
+      </div>
+    </div>
+    <div class="item">
+      <i class="marker icon"></i>
+      <div class="content">
+        <%= @house.home.address %>
+      </div>
+    </div>
+    <div class="item">
+      <i class="dollar sign icon"></i>
+      <div class="content">
+        <%= @house.home.price %> Sqmt
+      </div>
+    </div>
+    <div class="item">
+      <i class="map outline icon"></i>
+      <div class="content">
+        <%= @house.home.sqmt %> Sqmt
+      </div>
+    </div>
+  </div>
+  <% unless manager_signed_in? %>
+    <%= form_tag checkout_home_path(@house.home.id), method: 'post', class: "ui form" do %>
+      <div class="field">
+        <label>Your Email</label>
+        <input type="text" name="email" required="required">
+      </div>
+      <%= submit_tag 'Buy', class: "ui button secondary" %>
+    <% end %>
+  <% end %>
+</div>
