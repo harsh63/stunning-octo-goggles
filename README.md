@@ -1,6 +1,6 @@
 # README
 
-To make this app up and running, make sure all dependencies list below is installed in you system.
+To make this app up and running, make sure all dependencies list below is installed in your system.
 
 * Ruby version
     `2.6.6`
