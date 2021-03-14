@@ -6,7 +6,7 @@ To make this app up and running, make sure all dependencies list below is instal
     `2.6.6`
 * Rails Version
     `5.2.4.5`
-* Configuration
+* Configuration<br />
     Run `rake db:setup` which will do the basic setup for you.<br />
     The seed file will create some initial data including a manager.<br />
     You can login as manager with following credentials.<br />
