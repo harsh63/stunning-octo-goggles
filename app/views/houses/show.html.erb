@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<%= render partial: 'homes/show', locals: {home: @house.home} %>
+
+<p>
+  <strong>Rooms:</strong>
+  <%= @house.rooms %>
+</p>
+
+<p>
+  <strong>Floors:</strong>
+  <%= @house.floors %>
+</p>
+
+<p>
+  <strong>Air conditioner:</strong>
+  <%= @house.air_cond %>
+</p>
+
+<%= link_to 'Edit', edit_house_path(@house) %> |
+<%= link_to 'Back', houses_path %>

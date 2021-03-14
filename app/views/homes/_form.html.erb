@@ -1,0 +1,26 @@
+<%= f.fields_for :home do |form| %>
+  <div class="field">
+    <%= form.label :owner %>
+    <%= form.email_field :owner %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.number_field :sqmt %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pictures %>
+    <%= form.file_field :pictures, multiple: true %><br>
+  </div>
+<% end %>
